@@ -6,12 +6,11 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:30:36 by kassassi          #+#    #+#             */
-/*   Updated: 2025/05/29 13:28:44 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:10:03 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 char	extract_glyph(const char *format, int *i)
 {

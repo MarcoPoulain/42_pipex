@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cast_hex.c                                         :+:      :+:    :+:   */
+/*   open_write.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/27 16:27:16 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/19 14:10:52 by kassassi         ###   ########.fr       */
+/*   Created: 2025/08/19 15:44:50 by kassassi          #+#    #+#             */
+/*   Updated: 2025/08/19 16:01:06 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printers.h"
+#include <stdio.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-int	cast_hex(unsigned int n)
+int	main(void)
 {
-	char			*base;
-	char			buffer[8];
-	unsigned int	i;
-	unsigned int	count;
+	int	fd;
 
-	base = "0123456789abcdef";
-	i = 0;
-	count = 0;
-	if (n == 0)
+	fd = open("grimoire.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd < 0)
 	{
-		ft_putchar('0');
+		perror("open failed");
 		return (1);
 	}
-	while (n > 0)
+	if (write(fd, "Boule de feu\n", 13) < 0)
 	{
-		buffer[i++] = base[n % 16];
-		n = n / 16;
-		count++;
+		perror("write failed");
+		return (1);
 	}
-	while (i > 0)
+	if (close(fd) < 0)
 	{
-		ft_putchar(buffer[--i]);
+		perror ("close failed");
+		return (1);
 	}
-	return (count);
+	return (0);
 }

@@ -6,11 +6,10 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 17:56:50 by kassassi          #+#    #+#             */
-/*   Updated: 2025/05/29 14:07:10 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:11:13 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "printers.h"
 #include <unistd.h>
 

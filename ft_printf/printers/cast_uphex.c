@@ -6,11 +6,10 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:45:58 by kassassi          #+#    #+#             */
-/*   Updated: 2025/05/29 14:07:00 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:11:39 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "printers.h"
 
 int	cast_uphex(unsigned int n)

@@ -6,11 +6,10 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:29:59 by kassassi          #+#    #+#             */
-/*   Updated: 2025/05/26 14:32:20 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:10:55 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "printers.h"
 
 int	cast_char(char c)

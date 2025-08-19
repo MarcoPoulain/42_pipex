@@ -6,11 +6,10 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:03:50 by kassassi          #+#    #+#             */
-/*   Updated: 2025/05/29 14:10:30 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/19 14:11:31 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "printers.h"
 
 static int	ft_putuint(unsigned int n)
