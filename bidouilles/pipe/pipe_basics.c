@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   open_read_write.c                                  :+:      :+:    :+:   */
+/*   pipe_basics.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/19 16:36:55 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/20 13:00:13 by kassassi         ###   ########.fr       */
+/*   Created: 2025/08/20 13:29:17 by kassassi          #+#    #+#             */
+/*   Updated: 2025/08/20 13:43:52 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
-#include <fcntl.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int	main(void)
 {
-	int		fd_src;
-	int		fd_dest;
+	int		fd[2];
 	int		bytes;
 	char	*buffer;
 
+	if (pipe(fd) < 0)
+	{
+		perror("pipe failed");
+		return (1);
+	}
+	write(fd[1], "TEST UN DEUX UN DEUX", 20);
 	buffer = malloc(sizeof(char) * 101);
 	if (!buffer)
 		return (1);
-	fd_src = open("test.txt", O_RDONLY);
-	fd_dest = open("dest.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (fd_src < 0 || fd_dest < 0)
-	{
-		perror("open failed");
-		free(buffer);
-		return (1);
-	}
-	while ((bytes = read(fd_src, buffer, 100)) > 0)
-		write(fd_dest, buffer, bytes);
+	bytes = read(fd[0], buffer, 100);
 	if (bytes < 0)
 	{
 		perror("read failed");
 		free(buffer);
 		return (1);
 	}
-	if (close(fd_src) < 0 || close(fd_dest) < 0)
+	buffer[bytes] = '\0';
+	printf("%s\n", buffer);
+	if (close(fd[1]) < 0 || close(fd[0]) < 0)
 	{
 		perror("close failed");
 		free(buffer);
