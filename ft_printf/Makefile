@@ -32,8 +32,4 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
-	@$(CC) $(CFLAGS) tests/test_$(TEST) $(NAME) -o run_test
-	@./run_test
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re

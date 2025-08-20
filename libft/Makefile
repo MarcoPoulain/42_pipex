@@ -74,8 +74,4 @@ bonus: $(OBJ) $(BONUS_OBJ)
 	ar rc $(NAME) $(OBJ) $(BONUS_OBJ)
 	ranlib $(NAME)
 
-test:
-	@$(CC) $(CFLAGS) tests/test_$(TEST) $(ALL_SRC) -lbsd -o run_test
-	./run_test
-
-.PHONY: all clean fclean re test bonus
+.PHONY: all clean fclean re bonus
