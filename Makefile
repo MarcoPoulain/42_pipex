@@ -1,9 +1,9 @@
 NAME = pipex
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I . -I ft_printf/ -I libft/
+CFLAGS = -Wall -Wextra -Werror -I ft_printf/ -I libft/ -I headers/
 
-SRC_DIR = srcs
-SRC = main.c
+SRC = app_core/main.c \
+	  app_core/parsing/path.c
 
 OBJ = $(SRC:.c=.o)
 
