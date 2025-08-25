@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 15:01:31 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/25 17:25:55 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:34:15 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 void	free_split(char **arr)
 {
-    int	i;
+	int	i;
 
-    i = 0;
-    while (arr[i])
-    {
-        free(arr[i]);
-        i++;
-    }
-    free(arr);
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
 static int	path_line(char **envp)
 {
 	int	i;
-	
+
 	i = 0;
 	while (envp[i])
 	{
