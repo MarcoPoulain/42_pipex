@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/25 15:06:01 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/26 14:45:05 by kassassi         ###   ########.fr       */
+/*   Created: 2025/08/26 14:36:03 by kassassi          #+#    #+#             */
+/*   Updated: 2025/08/26 15:39:08 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "pipex.h"
 
-# include <stdlib.h>
+char	**parse_command(char *cmd)
+{
+	char	**arr_cmd;
 
-void	free_split(char **arr);
-char	*find_path(char *cmd, char **envp);
-char	**parse_command(char *cmd);
-
-#endif
+	arr_cmd = ft_split(cmd, ' ');
+	if (!arr_cmd)
+		return (NULL);
+	return (arr_cmd);
+}

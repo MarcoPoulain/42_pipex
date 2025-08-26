@@ -3,7 +3,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -I ft_printf/ -I libft/ -I headers/
 
 SRC = app_core/main.c \
-	  app_core/parsing/path.c
+	  app_core/parsing/path.c \
+	  app_core/parsing/command.c
 
 OBJ = $(SRC:.c=.o)
 
