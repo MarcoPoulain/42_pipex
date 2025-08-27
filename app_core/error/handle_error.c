@@ -6,12 +6,13 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 14:48:31 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/27 16:02:29 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/27 16:50:16 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <stdio.h>
+#include <unistd.h>
 
 void	print_error(char *msg)
 {
@@ -19,9 +20,16 @@ void	print_error(char *msg)
 	exit(EXIT_FAILURE);
 }
 
+void	wrong_argc_number(char *str)
+{
+	ft_printf("need: %s file1 cmd1 cmd2 file2\n", str);
+	exit(EXIT_FAILURE);
+}
+
 void	cmd_not_found(char *cmd, char **arr_cmd)
 {
-	ft_printf("%s: command not found\n", cmd);
+	write(2, cmd, ft_strlen(cmd));
+	write(2, ": command not found\n", 21);
 	if (arr_cmd)
 		free_split(arr_cmd);
 	exit(127);
