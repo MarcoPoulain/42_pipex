@@ -4,7 +4,8 @@ CFLAGS = -Wall -Wextra -Werror -I ft_printf/ -I libft/ -I headers/
 
 SRC = app_core/main.c \
 	  app_core/parsing/path.c \
-	  app_core/parsing/command.c
+	  app_core/parsing/command.c \
+	  app_core/error/handle_error.c
 
 OBJ = $(SRC:.c=.o)
 
