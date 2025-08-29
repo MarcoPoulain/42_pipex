@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 15:01:31 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/25 17:34:15 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/29 15:18:04 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	free_split(char **arr)
 	free(arr);
 }
 
+// check in envp and try to return the line begin by PATH=
 static int	path_line(char **envp)
 {
 	int	i;
@@ -40,7 +41,8 @@ static int	path_line(char **envp)
 	return (-1);
 }
 
-static char	*try_folder(char *folder, char *cmd)
+// try to build folder + / and folder/ + cmd and check if access match
+static char	*try_cmd_access(char *folder, char *cmd)
 {
 	char	*tmp;
 	char	*full_path;
@@ -58,6 +60,7 @@ static char	*try_folder(char *folder, char *cmd)
 	return (NULL);
 }
 
+// if path is find, free all the stuff and be happy
 char	*find_path(char *cmd, char **envp)
 {
 	char	**folders;
@@ -74,7 +77,7 @@ char	*find_path(char *cmd, char **envp)
 	i = 0;
 	while (folders[i])
 	{
-		full_path = try_folder(folders[i], cmd);
+		full_path = try_cmd_access(folders[i], cmd);
 		if (full_path)
 		{
 			free_split(folders);
