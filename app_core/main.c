@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:00:51 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/27 16:40:37 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/29 14:10:15 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	child_one(int *fd, char **argv, char **envp)
 	dup2(infile, STDIN_FILENO);
 	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
+	close(fd[1]);
 	close(infile);
 	arr_cmd = parse_command(argv[2]);
 	if (!arr_cmd || !arr_cmd[0])
@@ -52,6 +53,7 @@ static void	child_two(int *fd, char **argv, char **envp)
 	dup2(fd[0], STDIN_FILENO);
 	dup2(outfile, STDOUT_FILENO);
 	close(fd[1]);
+	close(fd[0]);
 	close(outfile);
 	arr_cmd = parse_command(argv[3]);
 	if (!arr_cmd || !arr_cmd[0])

@@ -6,7 +6,7 @@
 /*   By: kassassi <kassassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 14:48:31 by kassassi          #+#    #+#             */
-/*   Updated: 2025/08/27 16:50:16 by kassassi         ###   ########.fr       */
+/*   Updated: 2025/08/29 14:29:49 by kassassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	print_error(char *msg)
 
 void	wrong_argc_number(char *str)
 {
-	ft_printf("need: %s file1 cmd1 cmd2 file2\n", str);
+	write(2, "need: ", 6);
+	write(2, str, ft_strlen(str));
+	write(2, " file1 cmd1 cmd2 file2\n", 24);
 	exit(EXIT_FAILURE);
 }
 
